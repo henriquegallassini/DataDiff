@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página</title>
+    <link rel="stylesheet" href="./assets/css/Calculator_Age.css">
+</head>
+
+<body>
+    <section class="container">
+        <h1>Calculadora de Idade</h1>
+            <h3>Preencha os campos abaixo para saber sua idade</h2>
+                <form action="/" class="form" method="POST">
+                <label for="dia_atual">Dia Atual:</label>
+                <input type="number" id="dia_atual" name="dia_atual">
+
+                <label for="dia_nascimento">Dia Nascimento:</label>
+                <input type="number" id="dia_nascimento" name="dia_nascimento">
+
+                <label for="mes_atual">Mês Atual:</label>
+                <input type="number" id="mes_atual" name="mes_atual">
+
+                <label for="mes_nascimento">Mês Nascimento:</label>
+                <input type="number" id="mes_nascimento" name="mes_nascimento">
+
+                <label for="ano_atual">Ano Atual:</label>
+                <input type="number" id="ano_atual" name="ano_atual">
+
+                <label for="ano_nascimento">Ano Nascimento:</label>
+                <input type="number" id="ano_nascimento" name="ano_nascimento">
+
+                <button type="submit">Enter</button>
+            </form>
+            <div class="result"></div>
+    </section>
+    <script src="./assets/javascript/Age.js"></script>
+</body>
+
+</html>

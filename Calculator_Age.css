@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --primary-color: #254f8e;
+    --second-color: #fff;
+    --third-color: #25318e;
+    --fourth-color: #0dff00;
+    --five-color: #ff0000;
+}
+
+* {
+    box-sizing: border-box;
+    outline: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--primary-color);
+    font-family: Roboto Condensed;
+    font-size: 1.15em;
+    line-height: 1.5em;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: var(--second-color);
+    border-radius: 10px;
+}
+
+form input, form label, form button { /*faz os três ocuparem linha própria e largura total, com espaço entre eles.*/
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+form input {
+    font-size: 15px;
+    height: 25px;
+    padding: 1 25px;
+    cursor: pointer;
+}
+
+form input:focus { /*mostra contorno verde quando o campo está selecionado.*/
+    outline: 1.5px solid var(--primary-color) 
+}
+
+form button {
+    border: none;
+    padding: 6px;
+    background: var(--primary-color);
+    color: #fff;
+}
+
+form button:hover {
+    background: var(--third-color);
+}
+
+form button:active {
+    background: var(--third-color);
+}
+
+.paragrafo-concluido, .paragrafo-error {
+    background: var(--fourth-color);
+    padding: 5px 5px;
+}
+
+.paragrafo-error {
+    background: var(--five-color);
+    padding: 5px 5px;
+}
