@@ -1,40 +1,81 @@
-DataDiff
+# 🎂 DataDiff
 
-Calculadora de idade feita em JavaScript puro, que calcula a diferença exata entre duas datas em anos, meses e dias — sem usar bibliotecas externas.
+> Calculadora de idade em JavaScript puro — calcula anos, meses e dias exatos entre duas datas, sem depender de nenhuma biblioteca.
 
-O que faz
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?logo=javascript&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+![Status](https://img.shields.io/badge/status-concluído-brightgreen)
 
-O usuário informa a data de nascimento e a data atual (dia, mês e ano), e o projeto calcula a idade exata, tratando corretamente os casos em que:
+---
 
-O dia atual é menor que o dia de nascimento (ex: nasceu dia 25, hoje é dia 10)
-O mês atual é menor que o mês de nascimento (ex: nasceu em novembro, hoje é agosto)
+## 📸 Exemplo
 
-Esses casos usam uma lógica de "empréstimo" (borrow), parecida com a subtração manual que aprendemos na escola: quando a subtração de dias ou meses dá negativo, "pega emprestado" uma unidade da casa seguinte (mês empresta do ano, dia empresta do mês).
+**Entrada:**
+```
+Nascimento: 25/03/2000
+Hoje:       10/08/2026
+```
 
-Como usar
-Clone o repositório:
-bash
-   git clone https://github.com/henriquegallassini/DataDiff.git
-Abra o arquivo Calculator_age.html no navegador.
-Preencha os campos de data de nascimento e data atual.
-Clique em calcular e veja o resultado: Você tem X anos, Y meses e Z dias.
-Tecnologias
-HTML — estrutura do formulário
-CSS — estilização
-JavaScript — lógica de cálculo e manipulação do DOM
-Lógica de cálculo
+**Saída:**
+```
+Você tem 26 anos, 4 meses e 16 dias
+```
 
-O ponto principal do projeto é o cálculo de diferença de datas com empréstimo:
+---
 
-Se dia atual - dia nascimento < 0, soma-se ao resultado o número de dias do mês anterior (calculado dinamicamente com new Date(ano, mes - 1, 0).getDate(), que já trata corretamente meses com 28, 29, 30 ou 31 dias) e desconta-se 1 do total de meses.
-Se, depois disso, o total de meses ainda for negativo, soma-se 12 aos meses e desconta-se 1 do total de anos.
+## ✨ O que faz
 
-Isso evita o erro comum de calculadoras de idade simples, que apenas subtraem os números sem considerar se a data de aniversário do mês/ano já passou.
+Você informa sua data de nascimento e a data de hoje, e o projeto calcula sua idade **exata** — não é só subtrair os anos, ele lida com os casos que quebram calculadoras simples:
 
-Melhorias futuras
- Validação de datas inválidas (ex: dia 31 em fevereiro, mês 13)
- Bloqueio de data de nascimento no futuro
- Responsividade para mobile
-Autor
+- 📅 Dia atual menor que o dia de nascimento (ex: nasceu dia 25, hoje é dia 10)
+- 📆 Mês atual menor que o mês de nascimento (ex: nasceu em novembro, hoje é agosto)
 
-Desenvolvido por Henrique Gallassini como parte dos estudos de JavaScript e lógica de programação.
+## 🧠 A lógica por trás
+
+O coração do projeto é o cálculo com **"empréstimo"** — a mesma ideia da subtração manual que a gente aprende na escola (tipo "pedir emprestado" na conta de subtrair de dois números). Quando dia ou mês dá negativo, pega emprestado uma unidade da casa seguinte:
+
+```javascript
+// Se os dias ficaram negativos, empresta do mês
+if (diaA - diaN < 0) {
+    const diasMesAnterior = new Date(anoA, mesA - 1, 0).getDate();
+    dia += diasMesAnterior;
+    mes -= 1;
+}
+
+// Se os meses ainda ficaram negativos, empresta do ano
+if (mes < 0) {
+    mes += 12;
+    ano -= 1;
+}
+```
+
+O truque `new Date(ano, mes - 1, 0)` é um comportamento nativo do JavaScript: passar dia `0` retorna o **último dia do mês anterior** — resolvendo fevereiro (28/29 dias) e meses de 30/31 dias sem precisar de tabela manual.
+
+## 🚀 Como usar
+
+```bash
+git clone https://github.com/henriquegallassini/DataDiff.git
+```
+
+1. Abra `Calculator_age.html` no navegador
+2. Preencha data de nascimento e data atual
+3. Clique em calcular e veja sua idade exata
+
+## 🛠️ Tecnologias
+
+| Tecnologia | Uso |
+|---|---|
+| HTML | Estrutura do formulário |
+| CSS | Estilização |
+| JavaScript | Lógica de cálculo e manipulação do DOM |
+
+## 🗺️ Próximos passos
+
+- [ ] Validar datas inválidas (dia 31 em fevereiro, mês 13...)
+- [ ] Bloquear data de nascimento no futuro
+- [ ] Deixar responsivo pra mobile
+
+## 👤 Autor
+
+Feito por [Henrique Gallassini](https://github.com/henriquegallassini) — estudando lógica de programação e JavaScript.
